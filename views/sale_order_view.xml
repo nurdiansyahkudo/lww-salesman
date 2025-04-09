@@ -31,7 +31,6 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree"/>
         <field name="arch" type="xml">
-            <!-- Menambahkan kolom Salesman -->
             <xpath expr="//list[@class='o_sale_order']/field[@name='user_id']" position="replace">
                 <field name="employee_id" string="Salesman" optional="show" widget="many2many_tags"/>
             </xpath>
