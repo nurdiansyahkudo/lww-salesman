@@ -20,7 +20,7 @@ This module is for using Employee as Salesman/Salesperson instead of from res.us
     'data': [
         'views/hr_employee_view.xml',
         'views/sale_order_view.xml',
-        'views/sale_report_view.xml',
+        # 'views/sale_report_view.xml',
     ],
     'installable': True,
     'application': False,
