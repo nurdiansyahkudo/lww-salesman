@@ -191,6 +191,7 @@ class SaleReport(models.Model):
             LEFT JOIN product_template t ON p.product_tmpl_id=t.id
             LEFT JOIN uom_uom u ON u.id=l.product_uom
             LEFT JOIN uom_uom u2 ON u2.id=t.uom_id
+            LEFT JOIN hr_employee e ON e.id = s.employee_id  -- Ensure this JOIN is added
             JOIN {currency_table} ON account_currency_table.company_id = s.company_id
             """
 
@@ -210,6 +211,7 @@ class SaleReport(models.Model):
             s.date_order,
             s.partner_id,
             s.user_id,
+            s.employee_id,  -- Add employee_id here
             s.state,
             s.invoice_status,
             s.company_id,
