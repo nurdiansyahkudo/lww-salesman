@@ -1,25 +1,12 @@
 <odoo>
     <!-- Sales Order Tree -->
     <record id="view_sale_order_tree_inherit" model="ir.ui.view">
-        <field name="name">sale.order.tree.inherit.remarks</field>
+        <field name="name">sale.order.list.inherit</field>
         <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
         <field name="arch" type="xml">
             <!-- Menambahkan kolom Salesman -->
-            <xpath expr="//tree[@class='o_sale_order']/field[@name='user_id']" position="replace">
-                <field name="employee_id" string="Salesman" optional="show" widget="many2many_tags"/>
-            </xpath>
-        </field>
-    </record>
-
-    <!-- Quotation Tree -->
-    <record id="view_quotation_tree_inherit" model="ir.ui.view">
-        <field name="name">sale.order.quotation.tree.inherit.remarks</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
-        <field name="arch" type="xml">
-            <!-- Menambahkan kolom Salesman -->
-            <xpath expr="//tree[@class='o_sale_order']/field[@name='user_id']" position="replace">
+            <xpath expr="//list[@class='o_sale_order']/field[@name='user_id']" position="replace">
                 <field name="employee_id" string="Salesman" optional="show" widget="many2many_tags"/>
             </xpath>
         </field>
@@ -30,9 +17,23 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='sales_person']/field[@name='user_id']" position="after">
+            <xpath expr="//group[@name='sales_person']/field[@name='user_id']" position="replace">
                 <field name="employee_id" string="Salesman" widget="many2many_tags" />
             </xpath>
         </field>
     </record>
+
 </odoo>
+
+    <!-- Quotation Tree -->
+    <!-- <record id="view_quotation_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.list.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <!-- Menambahkan kolom Salesman -->
+            <xpath expr="//list[@class='o_sale_order']/field[@name='user_id']" position="replace">
+                <field name="employee_id" string="Salesman" optional="show" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record> -->
