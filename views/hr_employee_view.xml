@@ -11,7 +11,7 @@
                 <page name="sales_data" string="Sales Information">
                     <group string="Sales Data">
                         <field name="total_so_count"/>
-                        <field name="total_invoice_count"/>
+                        <!-- <field name="total_invoice_count"/> -->
                     </group>
                 </page>
             </xpath>
