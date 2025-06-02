@@ -16,11 +16,11 @@ class HREmployee(models.Model):
         [('employee_id', '=', employee.id)]
       )
   
-  # def _compute_total_invoice_count(self):
-  #   for employee in self:
-  #     employee.total_invoice_count = self.env['account.move'].search_count(
-  #       [
-  #         ('employee_id', '=', employee.id),
-  #         ('move_type', 'in', ['out_invoice', 'out_refund'])
-  #       ]
-  #     )
+  def _compute_total_invoice_count(self):
+    for employee in self:
+      employee.total_invoice_count = self.env['account.move'].search_count(
+        [
+          ('employee_id', '=', employee.id),
+          ('move_type', 'in', ['out_invoice', 'out_refund'])
+        ]
+      )
